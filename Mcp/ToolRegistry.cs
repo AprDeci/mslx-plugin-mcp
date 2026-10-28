@@ -139,6 +139,22 @@ public static class ToolRegistry
                 ["required"] = new JsonArray("instance_id", "path")
             });
 
+        yield return Tool("write_file",
+            "新建（或整体覆盖）实例目录内的一个文本文件。父目录不存在时默认自动创建，所以也能用来建文件夹。已存在的文件会先自动备份。",
+            new JsonObject
+            {
+                ["type"] = "object",
+                ["properties"] = new JsonObject
+                {
+                    ["instance_id"] = InstanceId(),
+                    ["path"] = Prop("string", "相对实例根目录的文件相对路径，如 plugins/Essentials/config.yml"),
+                    ["content"] = Prop("string", "完整文件内容（UTF-8 文本）"),
+                    ["create_dirs"] = Prop("boolean", "父目录不存在时是否自动创建，默认 true"),
+                    ["overwrite"] = Prop("boolean", "文件已存在时是否覆盖，默认 true")
+                },
+                ["required"] = new JsonArray("instance_id", "path", "content")
+            });
+
         yield return Tool("edit_file",
             "对实例目录内的文本文件做局部字符串替换（优先用它而不是整文件重写，避免写坏配置）。写入前会自动备份原文件。",
             new JsonObject

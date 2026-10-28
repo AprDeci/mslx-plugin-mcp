@@ -41,6 +41,7 @@ public sealed class McpTools
             "set_plugin_config" => SetPluginConfig(args),
             "list_files" => ListFiles(args),
             "read_file" => ReadFile(args),
+            "write_file" => WriteFile(args),
             "edit_file" => EditFile(args),
             _ => ToolResult.Fail($"未知工具: {name}")
         };
@@ -266,6 +267,51 @@ public sealed class McpTools
         var text = System.Text.Encoding.UTF8.GetString(buf, 0, read);
         var truncated = fi.Length > read;
         return ToolResult.Ok(truncated ? text + $"\n\n[已截断：文件共 {fi.Length} 字节，仅显示前 {read} 字节]" : text);
+    }
+
+    private ToolResult WriteFile(JsonObject args)
+    {
+        if (!TryGetInstance(args, out var s, out var err)) return err!;
+        if (!TryResolvePath(s!, GetString(args, "path"), out var full, out var perr)) return perr!;
+        if (Directory.Exists(full)) return ToolResult.Fail($"path 是一个目录（{full}），请指定文件名。");
+
+        var content = GetString(args, "content") ?? "";
+        var bytes = System.Text.Encoding.UTF8.GetByteCount(content);
+        if (bytes > WriteMax) return ToolResult.Fail($"内容过大（{bytes} 字节 > {WriteMax}），拒绝写入。");
+
+        var exists = File.Exists(full);
+        if (exists && (GetBool(args, "overwrite") ?? true) == false)
+            return ToolResult.Fail("目标文件已存在且 overwrite=false，未做任何修改。");
+
+        var dir = Path.GetDirectoryName(full);
+        bool createdDir = false;
+        if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
+        {
+            if ((GetBool(args, "create_dirs") ?? true) == false)
+                return ToolResult.Fail($"父目录不存在：{dir}（create_dirs=false 时不自动创建）");
+            Directory.CreateDirectory(dir);
+            if (!Directory.Exists(dir)) return ToolResult.Fail($"目录创建失败：{dir}");
+            createdDir = true;
+        }
+
+        string? backup = null;
+        if (exists)
+        {
+            backup = full + ".bak-" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            File.Copy(full, backup, overwrite: false);
+            if (!File.Exists(backup)) return ToolResult.Fail("备份创建失败，已中止写入。");
+        }
+
+        File.WriteAllText(full, content);
+        return ToolResult.Ok(new JsonObject
+        {
+            ["file"] = full,
+            ["backup"] = backup,
+            ["bytes"] = bytes,
+            ["created"] = !exists,
+            ["created_dir"] = createdDir,
+            ["message"] = exists ? "已覆盖写入（原文件已备份）。" : "已创建新文件。"
+        }.ToJsonString(JsonOpts.Pretty));
     }
 
     private ToolResult EditFile(JsonObject args)
