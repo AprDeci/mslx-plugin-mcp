@@ -25,20 +25,26 @@ public sealed class McpTools
     private const long ReadMax = 1024 * 1024;
     private const long WriteMax = 1024 * 1024;
 
-    public ToolResult Invoke(string name, JsonObject args) => name switch
+    public ToolResult Invoke(string name, JsonObject args)
     {
-        "list_instances" => ListInstances(),
-        "get_instance_info" => GetInstanceInfo(args),
-        "instance_power" => InstancePower(args),
-        "send_command" => SendCommand(args),
-        "get_logs" => GetLogs(args),
-        "get_plugin_config" => GetPluginConfig(),
-        "set_plugin_config" => SetPluginConfig(args),
-        "list_files" => ListFiles(args),
-        "read_file" => ReadFile(args),
-        "edit_file" => EditFile(args),
-        _ => ToolResult.Fail($"未知工具: {name}")
-    };
+        if (!McpSettings.IsToolEnabled(name))
+            return ToolResult.Fail($"功能已关闭：{name}。可在插件「MCP 控制台 → 功能开关」中开启。");
+
+        return name switch
+        {
+            "list_instances" => ListInstances(),
+            "get_instance_info" => GetInstanceInfo(args),
+            "instance_power" => InstancePower(args),
+            "send_command" => SendCommand(args),
+            "get_logs" => GetLogs(args),
+            "get_plugin_config" => GetPluginConfig(),
+            "set_plugin_config" => SetPluginConfig(args),
+            "list_files" => ListFiles(args),
+            "read_file" => ReadFile(args),
+            "edit_file" => EditFile(args),
+            _ => ToolResult.Fail($"未知工具: {name}")
+        };
+    }
 
     // ---------------- 实例查询 ----------------
 
@@ -100,8 +106,6 @@ public sealed class McpTools
     private ToolResult InstancePower(JsonObject args)
     {
         if (!TryGetInstance(args, out var s, out var err)) return err!;
-        if (!McpSettings.AllowHeavyOps)
-            return ToolResult.Fail("配置项 allowHeavyOps=false，已禁用启停/结束操作。");
 
         var id = (uint)s!.ID;
         var action = (GetString(args, "action") ?? "").ToLowerInvariant();
@@ -141,8 +145,47 @@ public sealed class McpTools
         var cmd = GetString(args, "command");
         if (string.IsNullOrWhiteSpace(cmd)) return ToolResult.Fail("command 不能为空。");
         var repeat = GetBool(args, "repeat_to_log") ?? true;
-        var ok = _console.SendCommand((uint)s!.ID, cmd!, repeat);
-        return ok ? ToolResult.Ok($"已发送命令：{cmd}") : ToolResult.Fail("发送命令失败（实例可能未在运行）。");
+        var id = (uint)s!.ID;
+
+        var waitMs = GetInt(args, "wait_ms") ?? 1000;
+        if (waitMs < 0) waitMs = 0;
+        if (waitMs > 5000) waitMs = 5000;
+
+        // 锚定日志最后一行（宿主缓冲可能环形截断，用行数不稳），发送后再取它之后的新行
+        var anchor = _console.GetLogs(id)?.LastOrDefault();
+
+        if (!_console.SendCommand(id, cmd!, repeat))
+            return ToolResult.Fail("发送命令失败（实例可能未在运行）。");
+
+        var output = new List<string>();
+        if (waitMs > 0)
+        {
+            // ponytail: 轮询宿主日志缓冲取增量，命令输出没有可订阅事件；真有推送接口再换
+            long lastChange = 0;
+            var sw = System.Diagnostics.Stopwatch.StartNew();
+            while (sw.ElapsedMilliseconds < waitMs)
+            {
+                Thread.Sleep(100);
+                var delta = TailAfter(_console.GetLogs(id)?.ToList() ?? new List<string>(), anchor);
+                var changed = delta.Count != output.Count || (delta.Count > 0 && delta[^1] != output[^1]);
+                if (changed) { output = delta; lastChange = sw.ElapsedMilliseconds; }
+                else if (output.Count > 0 && sw.ElapsedMilliseconds - lastChange >= 250) break; // 输出已稳定，提前返回
+            }
+        }
+
+        var text = output.Count == 0
+            ? $"已发送命令：{cmd}\n（{waitMs} ms 内控制台无新输出；可加大 wait_ms 或改用 get_logs 查看）"
+            : $"已发送命令：{cmd}\n---- 控制台输出 ----\n{string.Join("\n", output)}";
+        return ToolResult.Ok(text);
+    }
+
+    /// <summary>返回快照中「锚点行」之后的所有行；锚点缺失或已滚出缓冲时返回整份快照。</summary>
+    private static List<string> TailAfter(List<string> snap, string? anchor)
+    {
+        if (anchor is null) return snap;
+        for (int i = snap.Count - 1; i >= 0; i--)
+            if (snap[i] == anchor) return snap.Skip(i + 1).ToList();
+        return snap;
     }
 
     private ToolResult GetLogs(JsonObject args)
@@ -160,40 +203,25 @@ public sealed class McpTools
 
     private ToolResult GetPluginConfig()
     {
-        var cfg = MSLXPluginEntry.Instance.Config().ReadConfig();
-        var masked = cfg.DeepClone();
-        if (masked["apiKey"] is not null)
+        var obj = new JsonObject();
+        foreach (var t in ToolRegistry.BuildToolList().Select(n => n!.AsObject()))
         {
-            var k = masked["apiKey"]!.ToString();
-            masked["apiKey"] = k.Length > 8 ? k[..6] + "…" + k[^4..] : "****";
+            var name = t["name"]!.GetValue<string>();
+            obj[name] = McpSettings.IsToolEnabled(name);
         }
-        return ToolResult.Ok(masked.ToString(Newtonsoft.Json.Formatting.Indented));
+        return ToolResult.Ok(obj.ToJsonString(JsonOpts.Pretty));
     }
 
     private ToolResult SetPluginConfig(JsonObject args)
     {
-        var key = GetString(args, "key");
+        var key = GetString(args, "key")?.Trim();
         var value = GetString(args, "value");
         if (string.IsNullOrWhiteSpace(key)) return ToolResult.Fail("key 不能为空。");
+        if (!ToolRegistry.Exists(key!)) return ToolResult.Fail($"未知功能：{key}");
+        if (!bool.TryParse(value, out var enabled)) return ToolResult.Fail("value 需为 true/false。");
 
-        switch (key!.ToLowerInvariant())
-        {
-            case "apikey":
-            {
-                var newKey = McpSettings.RegenerateApiKey();
-                return ToolResult.Ok($"已重置 API Key：{newKey}（请在 MCP 客户端同步更新）");
-            }
-            case "allowfilewrite":
-                if (!bool.TryParse(value, out var fw)) return ToolResult.Fail("allowFileWrite 需为 true/false。");
-                McpSettings.AllowFileWrite = fw;
-                return ToolResult.Ok($"allowFileWrite 已设为 {fw}");
-            case "allowheavyops":
-                if (!bool.TryParse(value, out var ho)) return ToolResult.Fail("allowHeavyOps 需为 true/false。");
-                McpSettings.AllowHeavyOps = ho;
-                return ToolResult.Ok($"allowHeavyOps 已设为 {ho}");
-            default:
-                return ToolResult.Fail("仅支持 key: apiKey / allowFileWrite / allowHeavyOps");
-        }
+        McpSettings.SetToolEnabled(key!, enabled);
+        return ToolResult.Ok($"功能 {key} 已{(enabled ? "开启" : "关闭")}。");
     }
 
     // ---------------- 沙箱化文件工具 ----------------
@@ -243,7 +271,6 @@ public sealed class McpTools
     private ToolResult EditFile(JsonObject args)
     {
         if (!TryGetInstance(args, out var s, out var err)) return err!;
-        if (!McpSettings.AllowFileWrite) return ToolResult.Fail("配置项 allowFileWrite=false，已禁用文件写入。");
         if (!TryResolvePath(s!, GetString(args, "path"), out var full, out var perr)) return perr!;
         if (!File.Exists(full)) return ToolResult.Fail($"文件不存在：{full}");
 

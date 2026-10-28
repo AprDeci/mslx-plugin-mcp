@@ -1,68 +1,68 @@
-(function(){"use strict";try{if(typeof document<"u"){var a=document.createElement("style");a.appendChild(document.createTextNode("@keyframes t-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.t-icon{display:inline-block;vertical-align:middle;width:1em;height:1em}.t-icon:before{font-family:unset}.t-icon-loading{animation:t-spin 1s linear infinite}.t-icon.t-size-s,i.t-size-s{font-size:14px}.t-icon.t-size-m,i.t-size-m{font-size:16px}.t-icon.t-size-l,i.t-size-l{font-size:18px}@unocss;.relative[data-v-b155a86d]{position:relative}.m-0[data-v-b155a86d]{margin:0}.mt-0\\.5[data-v-b155a86d]{margin-top:.125rem}.h-5[data-v-b155a86d]{height:1.25rem}.h-px[data-v-b155a86d]{height:1px}.w-1\\.5[data-v-b155a86d]{width:.375rem}.flex[data-v-b155a86d]{display:flex}.flex-grow[data-v-b155a86d]{flex-grow:1}.flex-col[data-v-b155a86d]{flex-direction:column}.items-center[data-v-b155a86d]{align-items:center}.justify-center[data-v-b155a86d]{justify-content:center}.justify-between[data-v-b155a86d]{justify-content:space-between}.gap-2[data-v-b155a86d]{gap:.5rem}.gap-3[data-v-b155a86d]{gap:.75rem}.gap-4[data-v-b155a86d]{gap:1rem}.gap-5[data-v-b155a86d]{gap:1.25rem}.overflow-x-auto[data-v-b155a86d]{overflow-x:auto}.border[data-v-b155a86d]{border-width:1px}.border-b[data-v-b155a86d]{border-bottom-width:1px}.border-\\[var\\(--td-component-border\\)\\][data-v-b155a86d]{border-color:var(--td-component-border)}.rounded-2xl[data-v-b155a86d]{border-radius:1rem}.rounded-full[data-v-b155a86d]{border-radius:9999px}.rounded-xl[data-v-b155a86d]{border-radius:.75rem}.bg-\\[\\#1e1e1e\\][data-v-b155a86d]{--un-bg-opacity:1;background-color:rgb(30 30 30 / var(--un-bg-opacity))}.bg-\\[var\\(--color-primary\\)\\][data-v-b155a86d]{background-color:var(--color-primary)}.bg-\\[var\\(--td-bg-color-secondarycontainer\\)\\][data-v-b155a86d]{background-color:var(--td-bg-color-secondarycontainer)}.bg-\\[var\\(--td-component-border\\)\\][data-v-b155a86d]{background-color:var(--td-component-border)}.p-4[data-v-b155a86d]{padding:1rem}.p-5[data-v-b155a86d]{padding:1.25rem}.py-12[data-v-b155a86d]{padding-top:3rem;padding-bottom:3rem}.pb-4[data-v-b155a86d]{padding-bottom:1rem}.pt-5[data-v-b155a86d]{padding-top:1.25rem}.text-\\[13px\\][data-v-b155a86d]{font-size:13px}.text-lg[data-v-b155a86d]{font-size:1.125rem;line-height:1.75rem}.text-sm[data-v-b155a86d]{font-size:.875rem;line-height:1.25rem}.text-xs[data-v-b155a86d]{font-size:.75rem;line-height:1rem}.text-\\[\\#d4d4d4\\][data-v-b155a86d]{--un-text-opacity:1;color:rgb(212 212 212 / var(--un-text-opacity))}.text-\\[var\\(--color-primary\\)\\][data-v-b155a86d]{color:var(--color-primary)}.text-\\[var\\(--td-text-color-placeholder\\)\\][data-v-b155a86d]{color:var(--td-text-color-placeholder)}.text-\\[var\\(--td-text-color-primary\\)\\][data-v-b155a86d]{color:var(--td-text-color-primary)}.text-\\[var\\(--td-text-color-secondary\\)\\][data-v-b155a86d]{color:var(--td-text-color-secondary)}.font-bold[data-v-b155a86d]{font-weight:700}.leading-relaxed[data-v-b155a86d]{line-height:1.625}.font-mono[data-v-b155a86d]{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.opacity-90[data-v-b155a86d]{opacity:.9}.shadow-\\[0_0_8px_var\\(--color-primary-light\\)\\][data-v-b155a86d]{--un-shadow:0 0 8px var(--un-shadow-color, var(--color-primary-light));box-shadow:var(--un-ring-offset-shadow),var(--un-ring-shadow),var(--un-shadow)}.shadow-sm[data-v-b155a86d]{--un-shadow:var(--un-shadow-inset) 0 1px 2px 0 var(--un-shadow-color, rgb(0 0 0 / .05));box-shadow:var(--un-ring-offset-shadow),var(--un-ring-shadow),var(--un-shadow)}.light .light-outline[data-v-b155a86d],.outline[data-v-b155a86d]{outline-style:solid}@media(min-width:640px){.sm\\:flex-row[data-v-b155a86d]{flex-direction:row}.sm\\:items-center[data-v-b155a86d]{align-items:center}.sm\\:p-6[data-v-b155a86d]{padding:1.5rem}}")),document.head.appendChild(a)}}catch(t){console.error("vite-plugin-css-injected-by-js",t)}})();
-function U(e) {
+(function(){"use strict";try{if(typeof document<"u"){var a=document.createElement("style");a.appendChild(document.createTextNode("@keyframes t-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}.t-icon{display:inline-block;vertical-align:middle;width:1em;height:1em}.t-icon:before{font-family:unset}.t-icon-loading{animation:t-spin 1s linear infinite}.t-icon.t-size-s,i.t-size-s{font-size:14px}.t-icon.t-size-m,i.t-size-m{font-size:16px}.t-icon.t-size-l,i.t-size-l{font-size:18px}@unocss;.relative[data-v-079f8ea1]{position:relative}.m-0[data-v-079f8ea1]{margin:0}.my-3[data-v-079f8ea1]{margin-top:.75rem;margin-bottom:.75rem}.mt-0\\.5[data-v-079f8ea1]{margin-top:.125rem}.h-5[data-v-079f8ea1]{height:1.25rem}.h-px[data-v-079f8ea1]{height:1px}.min-w-0[data-v-079f8ea1]{min-width:0}.w-1\\.5[data-v-079f8ea1]{width:.375rem}.flex[data-v-079f8ea1]{display:flex}.flex-grow[data-v-079f8ea1]{flex-grow:1}.flex-col[data-v-079f8ea1]{flex-direction:column}.items-center[data-v-079f8ea1]{align-items:center}.justify-center[data-v-079f8ea1]{justify-content:center}.justify-between[data-v-079f8ea1]{justify-content:space-between}.gap-2[data-v-079f8ea1]{gap:.5rem}.gap-3[data-v-079f8ea1]{gap:.75rem}.gap-4[data-v-079f8ea1]{gap:1rem}.gap-5[data-v-079f8ea1]{gap:1.25rem}.overflow-x-auto[data-v-079f8ea1]{overflow-x:auto}.border[data-v-079f8ea1]{border-width:1px}.border-b[data-v-079f8ea1]{border-bottom-width:1px}.border-\\[var\\(--td-component-border\\)\\][data-v-079f8ea1]{border-color:var(--td-component-border)}.rounded-2xl[data-v-079f8ea1]{border-radius:1rem}.rounded-full[data-v-079f8ea1]{border-radius:9999px}.rounded-xl[data-v-079f8ea1]{border-radius:.75rem}.bg-\\[\\#1e1e1e\\][data-v-079f8ea1]{--un-bg-opacity:1;background-color:rgb(30 30 30 / var(--un-bg-opacity))}.bg-\\[var\\(--color-primary\\)\\][data-v-079f8ea1]{background-color:var(--color-primary)}.bg-\\[var\\(--td-bg-color-secondarycontainer\\)\\][data-v-079f8ea1]{background-color:var(--td-bg-color-secondarycontainer)}.bg-\\[var\\(--td-component-border\\)\\][data-v-079f8ea1]{background-color:var(--td-component-border)}.p-4[data-v-079f8ea1]{padding:1rem}.p-5[data-v-079f8ea1]{padding:1.25rem}.py-12[data-v-079f8ea1]{padding-top:3rem;padding-bottom:3rem}.pb-4[data-v-079f8ea1]{padding-bottom:1rem}.pt-5[data-v-079f8ea1]{padding-top:1.25rem}.text-\\[13px\\][data-v-079f8ea1]{font-size:13px}.text-lg[data-v-079f8ea1]{font-size:1.125rem;line-height:1.75rem}.text-sm[data-v-079f8ea1]{font-size:.875rem;line-height:1.25rem}.text-xs[data-v-079f8ea1]{font-size:.75rem;line-height:1rem}.text-\\[\\#d4d4d4\\][data-v-079f8ea1]{--un-text-opacity:1;color:rgb(212 212 212 / var(--un-text-opacity))}.text-\\[var\\(--color-primary\\)\\][data-v-079f8ea1]{color:var(--color-primary)}.text-\\[var\\(--td-text-color-placeholder\\)\\][data-v-079f8ea1]{color:var(--td-text-color-placeholder)}.text-\\[var\\(--td-text-color-primary\\)\\][data-v-079f8ea1]{color:var(--td-text-color-primary)}.text-\\[var\\(--td-text-color-secondary\\)\\][data-v-079f8ea1]{color:var(--td-text-color-secondary)}.font-bold[data-v-079f8ea1]{font-weight:700}.leading-relaxed[data-v-079f8ea1]{line-height:1.625}.font-mono[data-v-079f8ea1]{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.opacity-90[data-v-079f8ea1]{opacity:.9}.shadow-\\[0_0_8px_var\\(--color-primary-light\\)\\][data-v-079f8ea1]{--un-shadow:0 0 8px var(--un-shadow-color, var(--color-primary-light));box-shadow:var(--un-ring-offset-shadow),var(--un-ring-shadow),var(--un-shadow)}.shadow-sm[data-v-079f8ea1]{--un-shadow:var(--un-shadow-inset) 0 1px 2px 0 var(--un-shadow-color, rgb(0 0 0 / .05));box-shadow:var(--un-ring-offset-shadow),var(--un-ring-shadow),var(--un-shadow)}.light .light-outline[data-v-079f8ea1],.outline[data-v-079f8ea1]{outline-style:solid}@media(min-width:640px){.sm\\:flex-row[data-v-079f8ea1]{flex-direction:row}.sm\\:items-center[data-v-079f8ea1]{align-items:center}.sm\\:p-6[data-v-079f8ea1]{padding:1.5rem}}")),document.head.appendChild(a)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();
+function R(e) {
   return e && e.__esModule && Object.prototype.hasOwnProperty.call(e, "default") ? e.default : e;
 }
-var O, S;
-function J() {
-  return S || (S = 1, O = Vue), O;
+var O, w;
+function K() {
+  return w || (w = 1, O = Vue), O;
 }
-var r = J(), w, E;
-function X() {
-  return E || (E = 1, w = TDesign), w;
+var r = K(), N, A;
+function F() {
+  return A || (A = 1, N = TDesign), N;
 }
-var k = X();
-function h(e) {
+var h = F();
+function p(e) {
   "@babel/helpers - typeof";
-  return h = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(o) {
-    return typeof o;
-  } : function(o) {
-    return o && typeof Symbol == "function" && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
-  }, h(e);
+  return p = typeof Symbol == "function" && typeof Symbol.iterator == "symbol" ? function(t) {
+    return typeof t;
+  } : function(t) {
+    return t && typeof Symbol == "function" && t.constructor === Symbol && t !== Symbol.prototype ? "symbol" : typeof t;
+  }, p(e);
 }
-function Y(e, o) {
-  if (h(e) != "object" || !e) return e;
-  var t = e[Symbol.toPrimitive];
-  if (t !== void 0) {
-    var l = t.call(e, o);
-    if (h(l) != "object") return l;
+function Z(e, t) {
+  if (p(e) != "object" || !e) return e;
+  var o = e[Symbol.toPrimitive];
+  if (o !== void 0) {
+    var l = o.call(e, t);
+    if (p(l) != "object") return l;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
-  return (o === "string" ? String : Number)(e);
+  return (t === "string" ? String : Number)(e);
 }
-function G(e) {
-  var o = Y(e, "string");
-  return h(o) == "symbol" ? o : o + "";
+function U(e) {
+  var t = Z(e, "string");
+  return p(t) == "symbol" ? t : t + "";
 }
-function x(e, o, t) {
-  return (o = G(o)) in e ? Object.defineProperty(e, o, {
-    value: t,
+function x(e, t, o) {
+  return (t = U(t)) in e ? Object.defineProperty(e, t, {
+    value: o,
     enumerable: !0,
     configurable: !0,
     writable: !0
-  }) : e[o] = t, e;
+  }) : e[t] = o, e;
 }
-var _ = (e) => {
-  var o = ["strokeLinecap", "fillRule", "clipRule", "strokeWidth"];
-  return o.includes(e) ? e.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase() : e;
-}, p = (e, o) => {
-  var t = {};
+var j = (e) => {
+  var t = ["strokeLinecap", "fillRule", "clipRule", "strokeWidth"];
+  return t.includes(e) ? e.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase() : e;
+}, k = (e, t) => {
+  var o = {};
   if (e.attrs)
     for (var [l, i] of Object.entries(e.attrs))
       if (typeof i == "string" && i.startsWith("props.")) {
         var d = i.split(".")[1];
-        t[_(l)] = o[d];
+        o[j(l)] = t[d];
       } else
-        t[_(l)] = i;
-  e.tag === "svg" && (t.class = o.class, t.style = o.style, t.onClick = o.onClick);
-  var f = e.children ? e.children.map((u) => p(u, o)) : [];
-  return r.h(e.tag, t, f);
-}, Q = "t", ee = {
-  classPrefix: Q
+        o[j(l)] = i;
+  e.tag === "svg" && (o.class = t.class, o.style = t.style, o.onClick = t.onClick);
+  var f = e.children ? e.children.map((v) => k(v, t)) : [];
+  return r.h(e.tag, o, f);
+}, J = "t", X = {
+  classPrefix: J
 };
-function re() {
+function Y() {
   var {
     classPrefix: e
-  } = ee;
+  } = X;
   return {
     SIZE: {
       default: "",
@@ -92,36 +92,36 @@ function re() {
   };
 }
 function b(e) {
-  var o = re().SIZE, t = r.computed(() => e.value in o ? o[e.value] : ""), l = r.computed(() => e.value === void 0 || e.value in o ? {} : {
+  var t = Y().SIZE, o = r.computed(() => e.value in t ? t[e.value] : ""), l = r.computed(() => e.value === void 0 || e.value in t ? {} : {
     fontSize: e.value
   });
   return {
     style: l,
-    className: t
+    className: o
   };
 }
-function $(e, o) {
-  var t = Object.keys(e);
+function S(e, t) {
+  var o = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var l = Object.getOwnPropertySymbols(e);
-    o && (l = l.filter(function(i) {
+    t && (l = l.filter(function(i) {
       return Object.getOwnPropertyDescriptor(e, i).enumerable;
-    })), t.push.apply(t, l);
+    })), o.push.apply(o, l);
   }
-  return t;
+  return o;
 }
-function M(e) {
-  for (var o = 1; o < arguments.length; o++) {
-    var t = arguments[o] != null ? arguments[o] : {};
-    o % 2 ? $(Object(t), !0).forEach(function(l) {
-      x(e, l, t[l]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : $(Object(t)).forEach(function(l) {
-      Object.defineProperty(e, l, Object.getOwnPropertyDescriptor(t, l));
+function P(e) {
+  for (var t = 1; t < arguments.length; t++) {
+    var o = arguments[t] != null ? arguments[t] : {};
+    t % 2 ? S(Object(o), !0).forEach(function(l) {
+      x(e, l, o[l]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(o)) : S(Object(o)).forEach(function(l) {
+      Object.defineProperty(e, l, Object.getOwnPropertyDescriptor(o, l));
     });
   }
   return e;
 }
-var te = {
+var G = {
   tag: "svg",
   attrs: {
     fill: "none",
@@ -161,7 +161,7 @@ var te = {
       }
     }]
   }]
-}, N = r.defineComponent({
+}, E = r.defineComponent({
   name: "CopyIcon",
   props: {
     size: {
@@ -180,165 +180,61 @@ var te = {
       type: Number
     }
   },
-  setup(e, o) {
+  setup(e, t) {
     var {
-      attrs: t
-    } = o, l = r.computed(() => e.size), i = r.computed(() => e.strokeColor ? Array.isArray(e.strokeColor) ? e.strokeColor[0] : e.strokeColor : "currentColor"), d = r.computed(() => {
+      attrs: o
+    } = t, l = r.computed(() => e.size), i = r.computed(() => e.strokeColor ? Array.isArray(e.strokeColor) ? e.strokeColor[0] : e.strokeColor : "currentColor"), d = r.computed(() => {
       var a;
       return e.strokeColor ? Array.isArray(e.strokeColor) ? (a = e.strokeColor[1]) !== null && a !== void 0 ? a : e.strokeColor[0] : e.strokeColor : "currentColor";
-    }), f = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "transparent"), u = r.computed(() => {
+    }), f = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "transparent"), v = r.computed(() => {
       var a;
       return e.fillColor ? Array.isArray(e.fillColor) ? (a = e.fillColor[1]) !== null && a !== void 0 ? a : e.fillColor[0] : e.fillColor : "transparent";
     }), m = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "currentColor"), {
-      className: v,
-      style: y
-    } = b(l), C = r.computed(() => ["t-icon", "t-icon-copy", v.value]), n = r.computed(() => M(M({
+      className: n,
+      style: s
+    } = b(l), C = r.computed(() => ["t-icon", "t-icon-copy", n.value]), u = r.computed(() => P(P({
       fill: "none"
-    }, y.value), t.style)), c = r.computed(() => ({
+    }, s.value), o.style)), y = r.computed(() => ({
       class: C.value,
-      style: n.value,
+      style: u.value,
       onClick: (a) => {
-        var s;
-        return (s = e.onClick) === null || s === void 0 ? void 0 : s.call(e, {
+        var c;
+        return (c = e.onClick) === null || c === void 0 ? void 0 : c.call(e, {
           e: a
         });
       },
       strokeColor1: i.value,
       strokeColor2: d.value,
       fillColor1: f.value,
-      fillColor2: u.value,
+      fillColor2: v.value,
       strokeWidth: e.strokeWidth || 2,
       filledColor: m.value
     }));
-    return () => p(te, c.value);
+    return () => k(G, y.value);
   }
 });
-function W(e, o) {
-  var t = Object.keys(e);
+function _(e, t) {
+  var o = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var l = Object.getOwnPropertySymbols(e);
-    o && (l = l.filter(function(i) {
+    t && (l = l.filter(function(i) {
       return Object.getOwnPropertyDescriptor(e, i).enumerable;
-    })), t.push.apply(t, l);
+    })), o.push.apply(o, l);
   }
-  return t;
+  return o;
 }
-function L(e) {
-  for (var o = 1; o < arguments.length; o++) {
-    var t = arguments[o] != null ? arguments[o] : {};
-    o % 2 ? W(Object(t), !0).forEach(function(l) {
-      x(e, l, t[l]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : W(Object(t)).forEach(function(l) {
-      Object.defineProperty(e, l, Object.getOwnPropertyDescriptor(t, l));
+function $(e) {
+  for (var t = 1; t < arguments.length; t++) {
+    var o = arguments[t] != null ? arguments[t] : {};
+    t % 2 ? _(Object(o), !0).forEach(function(l) {
+      x(e, l, o[l]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(o)) : _(Object(o)).forEach(function(l) {
+      Object.defineProperty(e, l, Object.getOwnPropertyDescriptor(o, l));
     });
   }
   return e;
 }
-var oe = {
-  tag: "svg",
-  attrs: {
-    fill: "none",
-    viewBox: "0 0 24 24",
-    width: "1em",
-    height: "1em"
-  },
-  children: [{
-    tag: "g",
-    attrs: {
-      id: "key"
-    },
-    children: [{
-      tag: "path",
-      attrs: {
-        id: "fill1",
-        fill: "props.fillColor1",
-        d: "M11.5355 15.5355C9.58291 17.4882 6.41709 17.4882 4.46447 15.5355C2.51184 13.5829 2.51184 10.4171 4.46447 8.46447C6.41709 6.51184 9.58291 6.51184 11.5355 8.46447C13.4882 10.4171 13.4882 13.5829 11.5355 15.5355Z"
-      }
-    }, {
-      tag: "path",
-      attrs: {
-        id: "stroke1",
-        stroke: "props.strokeColor1",
-        d: "M14 12H21M16.5 14.9985V12M19.5 14V12M11.5355 15.5355C9.58291 17.4882 6.41709 17.4882 4.46447 15.5355C2.51184 13.5829 2.51184 10.4171 4.46447 8.46447C6.41709 6.51184 9.58291 6.51184 11.5355 8.46447C13.4882 10.4171 13.4882 13.5829 11.5355 15.5355Z",
-        strokeLinecap: "square",
-        strokeWidth: "props.strokeWidth"
-      }
-    }]
-  }]
-}, le = r.defineComponent({
-  name: "KeyIcon",
-  props: {
-    size: {
-      type: String
-    },
-    onClick: {
-      type: Function
-    },
-    fillColor: {
-      type: [Array, String]
-    },
-    strokeColor: {
-      type: [Array, String]
-    },
-    strokeWidth: {
-      type: Number
-    }
-  },
-  setup(e, o) {
-    var {
-      attrs: t
-    } = o, l = r.computed(() => e.size), i = r.computed(() => e.strokeColor ? Array.isArray(e.strokeColor) ? e.strokeColor[0] : e.strokeColor : "currentColor"), d = r.computed(() => {
-      var a;
-      return e.strokeColor ? Array.isArray(e.strokeColor) ? (a = e.strokeColor[1]) !== null && a !== void 0 ? a : e.strokeColor[0] : e.strokeColor : "currentColor";
-    }), f = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "transparent"), u = r.computed(() => {
-      var a;
-      return e.fillColor ? Array.isArray(e.fillColor) ? (a = e.fillColor[1]) !== null && a !== void 0 ? a : e.fillColor[0] : e.fillColor : "transparent";
-    }), m = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "currentColor"), {
-      className: v,
-      style: y
-    } = b(l), C = r.computed(() => ["t-icon", "t-icon-key", v.value]), n = r.computed(() => L(L({
-      fill: "none"
-    }, y.value), t.style)), c = r.computed(() => ({
-      class: C.value,
-      style: n.value,
-      onClick: (a) => {
-        var s;
-        return (s = e.onClick) === null || s === void 0 ? void 0 : s.call(e, {
-          e: a
-        });
-      },
-      strokeColor1: i.value,
-      strokeColor2: d.value,
-      fillColor1: f.value,
-      fillColor2: u.value,
-      strokeWidth: e.strokeWidth || 2,
-      filledColor: m.value
-    }));
-    return () => p(oe, c.value);
-  }
-});
-function T(e, o) {
-  var t = Object.keys(e);
-  if (Object.getOwnPropertySymbols) {
-    var l = Object.getOwnPropertySymbols(e);
-    o && (l = l.filter(function(i) {
-      return Object.getOwnPropertyDescriptor(e, i).enumerable;
-    })), t.push.apply(t, l);
-  }
-  return t;
-}
-function D(e) {
-  for (var o = 1; o < arguments.length; o++) {
-    var t = arguments[o] != null ? arguments[o] : {};
-    o % 2 ? T(Object(t), !0).forEach(function(l) {
-      x(e, l, t[l]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : T(Object(t)).forEach(function(l) {
-      Object.defineProperty(e, l, Object.getOwnPropertyDescriptor(t, l));
-    });
-  }
-  return e;
-}
-var ae = {
+var Q = {
   tag: "svg",
   attrs: {
     fill: "none",
@@ -362,7 +258,7 @@ var ae = {
       }
     }]
   }]
-}, ne = r.defineComponent({
+}, ee = r.defineComponent({
   name: "LinkIcon",
   props: {
     size: {
@@ -381,61 +277,61 @@ var ae = {
       type: Number
     }
   },
-  setup(e, o) {
+  setup(e, t) {
     var {
-      attrs: t
-    } = o, l = r.computed(() => e.size), i = r.computed(() => e.strokeColor ? Array.isArray(e.strokeColor) ? e.strokeColor[0] : e.strokeColor : "currentColor"), d = r.computed(() => {
+      attrs: o
+    } = t, l = r.computed(() => e.size), i = r.computed(() => e.strokeColor ? Array.isArray(e.strokeColor) ? e.strokeColor[0] : e.strokeColor : "currentColor"), d = r.computed(() => {
       var a;
       return e.strokeColor ? Array.isArray(e.strokeColor) ? (a = e.strokeColor[1]) !== null && a !== void 0 ? a : e.strokeColor[0] : e.strokeColor : "currentColor";
-    }), f = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "transparent"), u = r.computed(() => {
+    }), f = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "transparent"), v = r.computed(() => {
       var a;
       return e.fillColor ? Array.isArray(e.fillColor) ? (a = e.fillColor[1]) !== null && a !== void 0 ? a : e.fillColor[0] : e.fillColor : "transparent";
     }), m = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "currentColor"), {
-      className: v,
-      style: y
-    } = b(l), C = r.computed(() => ["t-icon", "t-icon-link", v.value]), n = r.computed(() => D(D({
+      className: n,
+      style: s
+    } = b(l), C = r.computed(() => ["t-icon", "t-icon-link", n.value]), u = r.computed(() => $($({
       fill: "none"
-    }, y.value), t.style)), c = r.computed(() => ({
+    }, s.value), o.style)), y = r.computed(() => ({
       class: C.value,
-      style: n.value,
+      style: u.value,
       onClick: (a) => {
-        var s;
-        return (s = e.onClick) === null || s === void 0 ? void 0 : s.call(e, {
+        var c;
+        return (c = e.onClick) === null || c === void 0 ? void 0 : c.call(e, {
           e: a
         });
       },
       strokeColor1: i.value,
       strokeColor2: d.value,
       fillColor1: f.value,
-      fillColor2: u.value,
+      fillColor2: v.value,
       strokeWidth: e.strokeWidth || 2,
       filledColor: m.value
     }));
-    return () => p(ae, c.value);
+    return () => k(Q, y.value);
   }
 });
-function z(e, o) {
-  var t = Object.keys(e);
+function M(e, t) {
+  var o = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var l = Object.getOwnPropertySymbols(e);
-    o && (l = l.filter(function(i) {
+    t && (l = l.filter(function(i) {
       return Object.getOwnPropertyDescriptor(e, i).enumerable;
-    })), t.push.apply(t, l);
+    })), o.push.apply(o, l);
   }
-  return t;
+  return o;
 }
-function q(e) {
-  for (var o = 1; o < arguments.length; o++) {
-    var t = arguments[o] != null ? arguments[o] : {};
-    o % 2 ? z(Object(t), !0).forEach(function(l) {
-      x(e, l, t[l]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : z(Object(t)).forEach(function(l) {
-      Object.defineProperty(e, l, Object.getOwnPropertyDescriptor(t, l));
+function L(e) {
+  for (var t = 1; t < arguments.length; t++) {
+    var o = arguments[t] != null ? arguments[t] : {};
+    t % 2 ? M(Object(o), !0).forEach(function(l) {
+      x(e, l, o[l]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(o)) : M(Object(o)).forEach(function(l) {
+      Object.defineProperty(e, l, Object.getOwnPropertyDescriptor(o, l));
     });
   }
   return e;
 }
-var ie = {
+var re = {
   tag: "svg",
   attrs: {
     fill: "none",
@@ -488,7 +384,7 @@ var ie = {
       }
     }]
   }]
-}, ce = r.defineComponent({
+}, te = r.defineComponent({
   name: "LockOnIcon",
   props: {
     size: {
@@ -507,61 +403,61 @@ var ie = {
       type: Number
     }
   },
-  setup(e, o) {
+  setup(e, t) {
     var {
-      attrs: t
-    } = o, l = r.computed(() => e.size), i = r.computed(() => e.strokeColor ? Array.isArray(e.strokeColor) ? e.strokeColor[0] : e.strokeColor : "currentColor"), d = r.computed(() => {
+      attrs: o
+    } = t, l = r.computed(() => e.size), i = r.computed(() => e.strokeColor ? Array.isArray(e.strokeColor) ? e.strokeColor[0] : e.strokeColor : "currentColor"), d = r.computed(() => {
       var a;
       return e.strokeColor ? Array.isArray(e.strokeColor) ? (a = e.strokeColor[1]) !== null && a !== void 0 ? a : e.strokeColor[0] : e.strokeColor : "currentColor";
-    }), f = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "transparent"), u = r.computed(() => {
+    }), f = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "transparent"), v = r.computed(() => {
       var a;
       return e.fillColor ? Array.isArray(e.fillColor) ? (a = e.fillColor[1]) !== null && a !== void 0 ? a : e.fillColor[0] : e.fillColor : "transparent";
     }), m = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "currentColor"), {
-      className: v,
-      style: y
-    } = b(l), C = r.computed(() => ["t-icon", "t-icon-lock-on", v.value]), n = r.computed(() => q(q({
+      className: n,
+      style: s
+    } = b(l), C = r.computed(() => ["t-icon", "t-icon-lock-on", n.value]), u = r.computed(() => L(L({
       fill: "none"
-    }, y.value), t.style)), c = r.computed(() => ({
+    }, s.value), o.style)), y = r.computed(() => ({
       class: C.value,
-      style: n.value,
+      style: u.value,
       onClick: (a) => {
-        var s;
-        return (s = e.onClick) === null || s === void 0 ? void 0 : s.call(e, {
+        var c;
+        return (c = e.onClick) === null || c === void 0 ? void 0 : c.call(e, {
           e: a
         });
       },
       strokeColor1: i.value,
       strokeColor2: d.value,
       fillColor1: f.value,
-      fillColor2: u.value,
+      fillColor2: v.value,
       strokeWidth: e.strokeWidth || 2,
       filledColor: m.value
     }));
-    return () => p(ie, c.value);
+    return () => k(re, y.value);
   }
 });
-function H(e, o) {
-  var t = Object.keys(e);
+function W(e, t) {
+  var o = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var l = Object.getOwnPropertySymbols(e);
-    o && (l = l.filter(function(i) {
+    t && (l = l.filter(function(i) {
       return Object.getOwnPropertyDescriptor(e, i).enumerable;
-    })), t.push.apply(t, l);
+    })), o.push.apply(o, l);
   }
-  return t;
+  return o;
 }
-function K(e) {
-  for (var o = 1; o < arguments.length; o++) {
-    var t = arguments[o] != null ? arguments[o] : {};
-    o % 2 ? H(Object(t), !0).forEach(function(l) {
-      x(e, l, t[l]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : H(Object(t)).forEach(function(l) {
-      Object.defineProperty(e, l, Object.getOwnPropertyDescriptor(t, l));
+function T(e) {
+  for (var t = 1; t < arguments.length; t++) {
+    var o = arguments[t] != null ? arguments[t] : {};
+    t % 2 ? W(Object(o), !0).forEach(function(l) {
+      x(e, l, o[l]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(o)) : W(Object(o)).forEach(function(l) {
+      Object.defineProperty(e, l, Object.getOwnPropertyDescriptor(o, l));
     });
   }
   return e;
 }
-var se = {
+var oe = {
   tag: "svg",
   attrs: {
     fill: "none",
@@ -585,7 +481,7 @@ var se = {
       }
     }]
   }]
-}, I = r.defineComponent({
+}, le = r.defineComponent({
   name: "RefreshIcon",
   props: {
     size: {
@@ -604,61 +500,61 @@ var se = {
       type: Number
     }
   },
-  setup(e, o) {
+  setup(e, t) {
     var {
-      attrs: t
-    } = o, l = r.computed(() => e.size), i = r.computed(() => e.strokeColor ? Array.isArray(e.strokeColor) ? e.strokeColor[0] : e.strokeColor : "currentColor"), d = r.computed(() => {
+      attrs: o
+    } = t, l = r.computed(() => e.size), i = r.computed(() => e.strokeColor ? Array.isArray(e.strokeColor) ? e.strokeColor[0] : e.strokeColor : "currentColor"), d = r.computed(() => {
       var a;
       return e.strokeColor ? Array.isArray(e.strokeColor) ? (a = e.strokeColor[1]) !== null && a !== void 0 ? a : e.strokeColor[0] : e.strokeColor : "currentColor";
-    }), f = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "transparent"), u = r.computed(() => {
+    }), f = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "transparent"), v = r.computed(() => {
       var a;
       return e.fillColor ? Array.isArray(e.fillColor) ? (a = e.fillColor[1]) !== null && a !== void 0 ? a : e.fillColor[0] : e.fillColor : "transparent";
     }), m = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "currentColor"), {
-      className: v,
-      style: y
-    } = b(l), C = r.computed(() => ["t-icon", "t-icon-refresh", v.value]), n = r.computed(() => K(K({
+      className: n,
+      style: s
+    } = b(l), C = r.computed(() => ["t-icon", "t-icon-refresh", n.value]), u = r.computed(() => T(T({
       fill: "none"
-    }, y.value), t.style)), c = r.computed(() => ({
+    }, s.value), o.style)), y = r.computed(() => ({
       class: C.value,
-      style: n.value,
+      style: u.value,
       onClick: (a) => {
-        var s;
-        return (s = e.onClick) === null || s === void 0 ? void 0 : s.call(e, {
+        var c;
+        return (c = e.onClick) === null || c === void 0 ? void 0 : c.call(e, {
           e: a
         });
       },
       strokeColor1: i.value,
       strokeColor2: d.value,
       fillColor1: f.value,
-      fillColor2: u.value,
+      fillColor2: v.value,
       strokeWidth: e.strokeWidth || 2,
       filledColor: m.value
     }));
-    return () => p(se, c.value);
+    return () => k(oe, y.value);
   }
 });
-function B(e, o) {
-  var t = Object.keys(e);
+function D(e, t) {
+  var o = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var l = Object.getOwnPropertySymbols(e);
-    o && (l = l.filter(function(i) {
+    t && (l = l.filter(function(i) {
       return Object.getOwnPropertyDescriptor(e, i).enumerable;
-    })), t.push.apply(t, l);
+    })), o.push.apply(o, l);
   }
-  return t;
+  return o;
 }
-function R(e) {
-  for (var o = 1; o < arguments.length; o++) {
-    var t = arguments[o] != null ? arguments[o] : {};
-    o % 2 ? B(Object(t), !0).forEach(function(l) {
-      x(e, l, t[l]);
-    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : B(Object(t)).forEach(function(l) {
-      Object.defineProperty(e, l, Object.getOwnPropertyDescriptor(t, l));
+function z(e) {
+  for (var t = 1; t < arguments.length; t++) {
+    var o = arguments[t] != null ? arguments[t] : {};
+    t % 2 ? D(Object(o), !0).forEach(function(l) {
+      x(e, l, o[l]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(o)) : D(Object(o)).forEach(function(l) {
+      Object.defineProperty(e, l, Object.getOwnPropertyDescriptor(o, l));
     });
   }
   return e;
 }
-var ue = {
+var ae = {
   tag: "svg",
   attrs: {
     fill: "none",
@@ -682,7 +578,7 @@ var ue = {
       }
     }]
   }]
-}, de = r.defineComponent({
+}, ne = r.defineComponent({
   name: "ToolsIcon",
   props: {
     size: {
@@ -701,93 +597,84 @@ var ue = {
       type: Number
     }
   },
-  setup(e, o) {
+  setup(e, t) {
     var {
-      attrs: t
-    } = o, l = r.computed(() => e.size), i = r.computed(() => e.strokeColor ? Array.isArray(e.strokeColor) ? e.strokeColor[0] : e.strokeColor : "currentColor"), d = r.computed(() => {
+      attrs: o
+    } = t, l = r.computed(() => e.size), i = r.computed(() => e.strokeColor ? Array.isArray(e.strokeColor) ? e.strokeColor[0] : e.strokeColor : "currentColor"), d = r.computed(() => {
       var a;
       return e.strokeColor ? Array.isArray(e.strokeColor) ? (a = e.strokeColor[1]) !== null && a !== void 0 ? a : e.strokeColor[0] : e.strokeColor : "currentColor";
-    }), f = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "transparent"), u = r.computed(() => {
+    }), f = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "transparent"), v = r.computed(() => {
       var a;
       return e.fillColor ? Array.isArray(e.fillColor) ? (a = e.fillColor[1]) !== null && a !== void 0 ? a : e.fillColor[0] : e.fillColor : "transparent";
     }), m = r.computed(() => e.fillColor ? Array.isArray(e.fillColor) ? e.fillColor[0] : e.fillColor : "currentColor"), {
-      className: v,
-      style: y
-    } = b(l), C = r.computed(() => ["t-icon", "t-icon-tools", v.value]), n = r.computed(() => R(R({
+      className: n,
+      style: s
+    } = b(l), C = r.computed(() => ["t-icon", "t-icon-tools", n.value]), u = r.computed(() => z(z({
       fill: "none"
-    }, y.value), t.style)), c = r.computed(() => ({
+    }, s.value), o.style)), y = r.computed(() => ({
       class: C.value,
-      style: n.value,
+      style: u.value,
       onClick: (a) => {
-        var s;
-        return (s = e.onClick) === null || s === void 0 ? void 0 : s.call(e, {
+        var c;
+        return (c = e.onClick) === null || c === void 0 ? void 0 : c.call(e, {
           e: a
         });
       },
       strokeColor1: i.value,
       strokeColor2: d.value,
       fillColor1: f.value,
-      fillColor2: u.value,
+      fillColor2: v.value,
       strokeWidth: e.strokeWidth || 2,
       filledColor: m.value
     }));
-    return () => p(ue, c.value);
+    return () => k(ae, y.value);
   }
-}), V, F;
-function fe() {
-  return F || (F = 1, V = mslxRequest), V;
+}), V, q;
+function ie() {
+  return q || (q = 1, V = mslxRequest), V;
 }
-var ve = fe();
-const A = /* @__PURE__ */ U(ve), Ce = /* @__PURE__ */ r.defineComponent({
+var ce = ie();
+const B = /* @__PURE__ */ R(ce), se = /* @__PURE__ */ r.defineComponent({
   __name: "McpPage",
   setup(e) {
-    const o = r.ref(!0), t = r.ref(null), l = r.ref(!1), i = r.ref(!1), d = (n) => n && typeof n == "object" && "data" in n && n.data != null ? n.data : n, f = async () => {
-      o.value = !0;
+    const t = r.ref(!0), o = r.ref(null), l = r.ref(!1), i = (n) => n && typeof n == "object" && "data" in n && n.data != null ? n.data : n, d = async () => {
+      t.value = !0;
       try {
-        const n = await A.get({ url: "/api/plugin/mslx-plugin-mcp/config" });
-        t.value = d(n);
+        const n = await B.get({ url: "/api/plugin/mslx-plugin-mcp/config" });
+        o.value = i(n);
       } catch (n) {
-        k.MessagePlugin.error("读取插件配置失败：" + (n?.message || "未知错误"));
+        h.MessagePlugin.error("读取插件配置失败：" + (n?.message || "未知错误"));
       } finally {
-        o.value = !1;
+        t.value = !1;
       }
-    }, u = async (n, c = "已复制") => {
+    }, f = async (n, s = "已复制") => {
       try {
-        await navigator.clipboard.writeText(n), k.MessagePlugin.success(c);
+        await navigator.clipboard.writeText(n), h.MessagePlugin.success(s);
       } catch {
-        k.MessagePlugin.warning("复制失败，请手动选择复制");
+        h.MessagePlugin.warning("复制失败，请手动选择复制");
       }
-    }, m = async () => {
+    }, v = async (n, s) => {
+      const C = n.enabled;
+      n.enabled = s, l.value = !0;
       try {
-        const n = await A.post({ url: "/api/plugin/mslx-plugin-mcp/regenerate-key" }), c = d(n);
-        t.value && (t.value.apiKey = c.apiKey), k.MessagePlugin.success("API Key 已重置，请同步更新 MCP 客户端");
-      } catch (n) {
-        k.MessagePlugin.error("重置失败：" + (n?.message || "未知错误"));
+        await B.post({
+          url: "/api/plugin/mslx-plugin-mcp/settings",
+          data: { tool: n.name, enabled: s }
+        });
+      } catch (u) {
+        n.enabled = C, h.MessagePlugin.error("保存失败：" + (u?.message || "未知错误"));
+      } finally {
+        l.value = !1;
       }
-    }, v = async (n, c) => {
-      if (t.value) {
-        t.value[n] = c, i.value = !0;
-        try {
-          const a = {};
-          a[n] = c, await A.post({ url: "/api/plugin/mslx-plugin-mcp/settings", data: a }), k.MessagePlugin.success("已保存");
-        } catch (a) {
-          t.value[n] = !c, k.MessagePlugin.error("保存失败：" + (a?.message || "未知错误"));
-        } finally {
-          i.value = !1;
-        }
-      }
-    }, y = () => {
-      const n = t.value?.apiKey || "";
-      return l.value ? n : n.length > 12 ? n.slice(0, 6) + "••••••••" + n.slice(-4) : "••••••••";
-    }, C = () => {
-      const n = t.value?.mcpUrl || "";
+    }, m = () => {
+      const n = o.value?.mcpUrl || "";
       return JSON.stringify(
         {
           mcpServers: {
             mslx: {
               type: "http",
               url: n,
-              headers: { "x-api-key": "<面板 → 用户管理 → API 密钥>" }
+              headers: { "x-api-key": "<configs/userlist.json 里的 ApiKey>" }
             }
           }
         },
@@ -795,8 +682,8 @@ const A = /* @__PURE__ */ U(ve), Ce = /* @__PURE__ */ r.defineComponent({
         2
       );
     };
-    return r.onMounted(f), (n, c) => {
-      const a = r.resolveComponent("t-tag"), s = r.resolveComponent("t-button"), Z = r.resolveComponent("t-loading"), P = r.resolveComponent("t-input"), j = r.resolveComponent("t-switch");
+    return r.onMounted(d), (n, s) => {
+      const C = r.resolveComponent("t-tag"), u = r.resolveComponent("t-button"), y = r.resolveComponent("t-loading"), a = r.resolveComponent("t-input"), c = r.resolveComponent("t-switch");
       return r.openBlock(), r.createElementBlock("div", { class: "design-card relative flex flex-col rounded-2xl border border-[var(--td-component-border)] shadow-sm p-5 sm:p-6" }, [
         r.createElementVNode("div", { class: "flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[var(--td-component-border)]" }, [
           r.createElementVNode("div", { class: "flex items-center gap-3" }, [
@@ -807,7 +694,7 @@ const A = /* @__PURE__ */ U(ve), Ce = /* @__PURE__ */ r.defineComponent({
             ])
           ]),
           r.createElementVNode("div", { class: "flex items-center gap-2" }, [
-            t.value ? (r.openBlock(), r.createBlock(a, {
+            o.value ? (r.openBlock(), r.createBlock(C, {
               key: 0,
               theme: "success",
               variant: "light-outline",
@@ -815,18 +702,18 @@ const A = /* @__PURE__ */ U(ve), Ce = /* @__PURE__ */ r.defineComponent({
               size: "small"
             }, {
               default: r.withCtx(() => [
-                r.createTextVNode(r.toDisplayString(t.value.toolCount) + " 个工具 ", 1)
+                r.createTextVNode(r.toDisplayString(o.value.toolCount) + " 个功能 ", 1)
               ]),
               _: 1
             })) : r.createCommentVNode("", !0),
-            r.createVNode(s, {
+            r.createVNode(u, {
               size: "small",
               variant: "outline",
-              loading: o.value,
-              onClick: f
+              loading: t.value,
+              onClick: d
             }, {
               icon: r.withCtx(() => [
-                r.createVNode(r.unref(I))
+                r.createVNode(r.unref(le))
               ]),
               default: r.withCtx(() => [
                 r.createTextVNode(" 刷新 ")
@@ -835,37 +722,37 @@ const A = /* @__PURE__ */ U(ve), Ce = /* @__PURE__ */ r.defineComponent({
             }, 8, ["loading"])
           ])
         ]),
-        o.value && !t.value ? (r.openBlock(), r.createElementBlock("div", {
+        t.value && !o.value ? (r.openBlock(), r.createElementBlock("div", {
           key: 0,
           class: "flex justify-center py-12"
         }, [
-          r.createVNode(Z, {
+          r.createVNode(y, {
             size: "28px",
             text: "加载中..."
           })
-        ])) : t.value ? (r.openBlock(), r.createElementBlock("div", {
+        ])) : o.value ? (r.openBlock(), r.createElementBlock("div", {
           key: 1,
           class: "flex flex-col gap-5 pt-5"
         }, [
           r.createElementVNode("section", { class: "flex flex-col gap-3" }, [
             r.createElementVNode("div", { class: "flex items-center gap-2 text-sm font-bold text-[var(--td-text-color-primary)]" }, [
-              r.createVNode(r.unref(ne), { class: "text-[var(--color-primary)]" }),
+              r.createVNode(r.unref(ee), { class: "text-[var(--color-primary)]" }),
               r.createTextVNode(" 连接信息 ")
             ]),
             r.createElementVNode("div", { class: "flex flex-col gap-2" }, [
               r.createElementVNode("label", { class: "text-xs text-[var(--td-text-color-secondary)]" }, "MCP 端点地址（Streamable HTTP）"),
               r.createElementVNode("div", { class: "flex flex-col sm:flex-row gap-2" }, [
-                r.createVNode(P, {
-                  value: t.value.mcpUrl,
+                r.createVNode(a, {
+                  value: o.value.mcpUrl,
                   readonly: "",
                   class: "flex-grow"
                 }, null, 8, ["value"]),
-                r.createVNode(s, {
+                r.createVNode(u, {
                   variant: "outline",
-                  onClick: c[0] || (c[0] = (g) => u(t.value.mcpUrl, "已复制端点地址"))
+                  onClick: s[0] || (s[0] = (g) => f(o.value.mcpUrl, "已复制端点地址"))
                 }, {
                   icon: r.withCtx(() => [
-                    r.createVNode(r.unref(N))
+                    r.createVNode(r.unref(E))
                   ]),
                   default: r.withCtx(() => [
                     r.createTextVNode(" 复制 ")
@@ -880,102 +767,69 @@ const A = /* @__PURE__ */ U(ve), Ce = /* @__PURE__ */ r.defineComponent({
               ])
             ]),
             r.createElementVNode("div", { class: "flex flex-col gap-2" }, [
-              r.createElementVNode("label", { class: "text-xs text-[var(--td-text-color-secondary)]" }, "插件自带 Key（可选，兼容旧客户端）"),
+              r.createElementVNode("label", { class: "text-xs text-[var(--td-text-color-secondary)]" }, [
+                r.createTextVNode("鉴权：宿主 API 密钥（请求头 "),
+                r.createElementVNode("code", null, "x-api-key"),
+                r.createTextVNode("）")
+              ]),
               r.createElementVNode("div", { class: "flex flex-col sm:flex-row gap-2" }, [
-                r.createVNode(P, {
-                  value: y(),
+                r.createVNode(a, {
+                  value: "configs/userlist.json → 对应用户的 ApiKey 字段",
                   readonly: "",
                   class: "flex-grow font-mono"
-                }, null, 8, ["value"]),
-                r.createVNode(s, {
-                  variant: "outline",
-                  onClick: c[1] || (c[1] = (g) => l.value = !l.value)
-                }, {
-                  icon: r.withCtx(() => [
-                    r.createVNode(r.unref(le))
-                  ]),
-                  default: r.withCtx(() => [
-                    r.createTextVNode(" " + r.toDisplayString(l.value ? "隐藏" : "显示"), 1)
-                  ]),
-                  _: 1
-                }),
-                r.createVNode(s, {
-                  variant: "outline",
-                  onClick: c[2] || (c[2] = (g) => u(t.value.apiKey, "已复制 API Key"))
-                }, {
-                  icon: r.withCtx(() => [
-                    r.createVNode(r.unref(N))
-                  ]),
-                  default: r.withCtx(() => [
-                    r.createTextVNode(" 复制 ")
-                  ]),
-                  _: 1
-                }),
-                r.createVNode(s, {
-                  theme: "warning",
-                  variant: "outline",
-                  onClick: m
-                }, {
-                  icon: r.withCtx(() => [
-                    r.createVNode(r.unref(I))
-                  ]),
-                  default: r.withCtx(() => [
-                    r.createTextVNode(" 重置 ")
-                  ]),
-                  _: 1
                 })
               ]),
               r.createElementVNode("p", { class: "text-xs text-[var(--td-text-color-placeholder)] m-0" }, [
-                r.createTextVNode(" 一般用不上：端点挂在宿主 /api 下，客户端带上宿主的 "),
-                r.createElementVNode("code", null, "x-api-key"),
-                r.createTextVNode("（面板 → 用户管理 → API 密钥）即可，长期有效。这个 Key 只在需要绕过宿主鉴权直连时才有意义。 ")
+                r.createTextVNode(" 面板里暂时看不到密钥：直接去服务器上的 "),
+                r.createElementVNode("code", null, "configs/userlist.json"),
+                r.createTextVNode(" 找当前用户的 "),
+                r.createElementVNode("code", null, "ApiKey"),
+                r.createTextVNode(" 值，填给客户端即可（长期有效，不用重置）。 ")
               ])
             ])
           ]),
           r.createElementVNode("section", { class: "flex flex-col gap-3" }, [
             r.createElementVNode("div", { class: "flex items-center gap-2 text-sm font-bold text-[var(--td-text-color-primary)]" }, [
-              r.createVNode(r.unref(ce), { class: "text-[var(--color-primary)]" }),
-              r.createTextVNode(" 安全开关 ")
+              r.createVNode(r.unref(te), { class: "text-[var(--color-primary)]" }),
+              r.createTextVNode(" 功能开关 ")
             ]),
-            r.createElementVNode("div", { class: "rounded-xl border border-[var(--td-component-border)] bg-[var(--td-bg-color-secondarycontainer)] p-4 flex flex-col gap-4" }, [
-              r.createElementVNode("div", { class: "flex items-center justify-between gap-4" }, [
-                r.createElementVNode("div", { class: "flex flex-col" }, [
-                  r.createElementVNode("span", { class: "text-sm text-[var(--td-text-color-primary)]" }, "允许文件写入（edit_file）"),
-                  r.createElementVNode("span", { class: "text-xs text-[var(--td-text-color-secondary)] mt-0.5" }, "关闭后仅可读文件，禁止任何写入。写入前会自动备份。")
-                ]),
-                r.createVNode(j, {
-                  value: t.value.allowFileWrite,
-                  loading: i.value,
-                  onChange: c[3] || (c[3] = (g) => v("allowFileWrite", !!g))
-                }, null, 8, ["value", "loading"])
-              ]),
-              r.createElementVNode("div", { class: "h-px bg-[var(--td-component-border)]" }),
-              r.createElementVNode("div", { class: "flex items-center justify-between gap-4" }, [
-                r.createElementVNode("div", { class: "flex flex-col" }, [
-                  r.createElementVNode("span", { class: "text-sm text-[var(--td-text-color-primary)]" }, "允许启停 / 结束实例（instance_power）"),
-                  r.createElementVNode("span", { class: "text-xs text-[var(--td-text-color-secondary)] mt-0.5" }, "关闭后 AI 无法启动、停止、重启或强杀服务器。")
-                ]),
-                r.createVNode(j, {
-                  value: t.value.allowHeavyOps,
-                  loading: i.value,
-                  onChange: c[4] || (c[4] = (g) => v("allowHeavyOps", !!g))
-                }, null, 8, ["value", "loading"])
-              ])
-            ])
+            r.createElementVNode("div", { class: "rounded-xl border border-[var(--td-component-border)] bg-[var(--td-bg-color-secondarycontainer)] p-4 flex flex-col" }, [
+              (r.openBlock(!0), r.createElementBlock(r.Fragment, null, r.renderList(o.value.tools, (g, H) => (r.openBlock(), r.createElementBlock("div", {
+                key: g.name,
+                class: "flex flex-col"
+              }, [
+                H > 0 ? (r.openBlock(), r.createElementBlock("div", {
+                  key: 0,
+                  class: "h-px bg-[var(--td-component-border)] my-3"
+                })) : r.createCommentVNode("", !0),
+                r.createElementVNode("div", { class: "flex items-center justify-between gap-4" }, [
+                  r.createElementVNode("div", { class: "flex flex-col min-w-0" }, [
+                    r.createElementVNode("span", { class: "text-sm font-mono text-[var(--td-text-color-primary)]" }, r.toDisplayString(g.name), 1),
+                    r.createElementVNode("span", { class: "text-xs text-[var(--td-text-color-secondary)] mt-0.5" }, r.toDisplayString(g.description), 1)
+                  ]),
+                  r.createVNode(c, {
+                    value: g.enabled,
+                    loading: l.value,
+                    onChange: (I) => v(g, !!I)
+                  }, null, 8, ["value", "loading", "onChange"])
+                ])
+              ]))), 128))
+            ]),
+            r.createElementVNode("p", { class: "text-xs text-[var(--td-text-color-placeholder)] m-0" }, " 关闭的功能 AI 调用时会直接报错；全部关闭后 AI 仍然能看到工具列表但无法执行。默认全开。 ")
           ]),
           r.createElementVNode("section", { class: "flex flex-col gap-3" }, [
             r.createElementVNode("div", { class: "flex items-center justify-between gap-2" }, [
               r.createElementVNode("div", { class: "flex items-center gap-2 text-sm font-bold text-[var(--td-text-color-primary)]" }, [
-                r.createVNode(r.unref(de), { class: "text-[var(--color-primary)]" }),
+                r.createVNode(r.unref(ne), { class: "text-[var(--color-primary)]" }),
                 r.createTextVNode(" 客户端配置示例 ")
               ]),
-              r.createVNode(s, {
+              r.createVNode(u, {
                 size: "small",
                 variant: "text",
-                onClick: c[5] || (c[5] = (g) => u(C(), "已复制配置 JSON"))
+                onClick: s[1] || (s[1] = (g) => f(m(), "已复制配置 JSON"))
               }, {
                 icon: r.withCtx(() => [
-                  r.createVNode(r.unref(N))
+                  r.createVNode(r.unref(E))
                 ]),
                 default: r.withCtx(() => [
                   r.createTextVNode(" 复制 JSON ")
@@ -985,7 +839,7 @@ const A = /* @__PURE__ */ U(ve), Ce = /* @__PURE__ */ r.defineComponent({
             ]),
             r.createElementVNode("div", { class: "overflow-x-auto rounded-xl border border-[var(--td-component-border)] bg-[#1e1e1e]" }, [
               r.createElementVNode("pre", { class: "m-0 p-4 text-[13px] leading-relaxed font-mono text-[#d4d4d4]" }, [
-                r.createElementVNode("code", null, r.toDisplayString(C()), 1)
+                r.createElementVNode("code", null, r.toDisplayString(m()), 1)
               ])
             ]),
             r.createElementVNode("p", { class: "text-xs text-[var(--td-text-color-secondary)] m-0 leading-relaxed" }, " 支持纯 JSON 响应模式（Streamable HTTP）。若客户端只支持 SSE，请改用支持 HTTP 的 MCP 客户端（如 Claude Desktop、Cursor、Cherry Studio 等）。 ")
@@ -994,12 +848,12 @@ const A = /* @__PURE__ */ U(ve), Ce = /* @__PURE__ */ r.defineComponent({
       ]);
     };
   }
-}), me = (e, o) => {
-  const t = e.__vccOpts || e;
-  for (const [l, i] of o)
-    t[l] = i;
-  return t;
-}, ye = /* @__PURE__ */ me(Ce, [["__scopeId", "data-v-b155a86d"]]), ge = {
+}), ue = (e, t) => {
+  const o = e.__vccOpts || e;
+  for (const [l, i] of t)
+    o[l] = i;
+  return o;
+}, de = /* @__PURE__ */ ue(se, [["__scopeId", "data-v-079f8ea1"]]), fe = {
   name: "MSLX.Plugin.Mcp",
   version: "1.0.0",
   // 注入一级菜单 + 单页
@@ -1013,7 +867,7 @@ const A = /* @__PURE__ */ U(ve), Ce = /* @__PURE__ */ r.defineComponent({
         {
           path: "",
           name: "MslxMcpPage",
-          component: ye,
+          component: de,
           meta: { title: "MCP 控制台", hidden: !0, roleCode: ["admin", "user"] }
         }
       ]
@@ -1021,5 +875,5 @@ const A = /* @__PURE__ */ U(ve), Ce = /* @__PURE__ */ r.defineComponent({
   ]
 };
 export {
-  ge as pluginConfig
+  fe as pluginConfig
 };

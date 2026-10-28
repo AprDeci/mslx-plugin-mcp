@@ -9,6 +9,8 @@ public static class ToolRegistry
 {
     public static JsonArray BuildToolList() => new(All().Select(t => (JsonNode)t).ToArray());
 
+    public static bool Exists(string name) => All().Any(t => t["name"]?.GetValue<string>() == name);
+
     private static JsonObject Tool(string name, string description, JsonObject inputSchema) => new()
     {
         ["name"] = name,
@@ -64,7 +66,7 @@ public static class ToolRegistry
 
         // ---- 命令输入 ----
         yield return Tool("send_command",
-            "向实例控制台发送一条命令（无需带前导 /）。例如 say hello、gamemode creative <player>、list。",
+            "向实例控制台发送一条命令（无需带前导 /），并返回该命令在控制台产生的输出。例如 say hello、gamemode creative <player>、list。",
             new JsonObject
             {
                 ["type"] = "object",
@@ -72,7 +74,8 @@ public static class ToolRegistry
                 {
                     ["instance_id"] = InstanceId(),
                     ["command"] = Prop("string", "要发送的命令文本"),
-                    ["repeat_to_log"] = Prop("boolean", "是否把该命令也回显到日志，默认 true")
+                    ["repeat_to_log"] = Prop("boolean", "是否把该命令也回显到日志，默认 true"),
+                    ["wait_ms"] = Prop("integer", "等待控制台输出的最长时间，默认 1000，最大 5000")
                 },
                 ["required"] = new JsonArray("instance_id", "command")
             });
@@ -92,18 +95,18 @@ public static class ToolRegistry
 
         // ---- 插件自身配置（结构化） ----
         yield return Tool("get_plugin_config",
-            "读取本 MCP 插件的自身配置（apiKey 会脱敏显示）。",
+            "读取本插件各功能开关的状态。",
             Obj());
 
         yield return Tool("set_plugin_config",
-            "修改本 MCP 插件的自身配置项。key: apiKey / allowFileWrite / allowHeavyOps。",
+            "开启 / 关闭本插件的一个功能。key 为工具名（如 edit_file），value 为 true/false。",
             new JsonObject
             {
                 ["type"] = "object",
                 ["properties"] = new JsonObject
                 {
-                    ["key"] = Prop("string", "配置键：apiKey（重置访问密钥）、allowFileWrite（true/false）、allowHeavyOps（true/false）"),
-                    ["value"] = Prop("string", "配置值（布尔请填 true/false）")
+                    ["key"] = Prop("string", "工具名，如 list_instances / edit_file"),
+                    ["value"] = Prop("string", "true=开启，false=关闭")
                 },
                 ["required"] = new JsonArray("key", "value")
             });

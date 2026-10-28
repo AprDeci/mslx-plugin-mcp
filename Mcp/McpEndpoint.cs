@@ -2,6 +2,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using MSLX.SDK;
+using MSLX.SDK.IServices;
 using Microsoft.AspNetCore.Http;
 
 namespace MSLX.Plugin.Mcp.Mcp;
@@ -169,9 +170,9 @@ public static class McpEndpoint
             return new JsonObject { ["isError"] = true, ["content"] = TextContent("缺少工具名称") };
 
         var args = prms?["arguments"] as JsonObject ?? new JsonObject();
-        var tools = ctx.RequestServices.GetService(typeof(McpTools)) as McpTools;
+        var tools = ResolveTools(ctx);
         if (tools is null)
-            return new JsonObject { ["isError"] = true, ["content"] = TextContent("插件服务未初始化") };
+            return new JsonObject { ["isError"] = true, ["content"] = TextContent("宿主服务未就绪（IInstanceLifecycleService / IInstanceConsoleService 取不到），请重启 MSLX 后再试") };
 
         var r = ToolRegistry.Dispatch(tools, name!, args);
         return new JsonObject
@@ -183,6 +184,19 @@ public static class McpEndpoint
 
     private static JsonArray TextContent(string text) => new(new JsonObject { ["type"] = "text", ["text"] = text });
 
+    /// <summary>
+    /// 取 McpTools：优先用 DI 里注册的单例；插件热安装时 OnRegisterServices 可能没执行，
+    /// 此时宿主服务仍在容器中，直接构造一份（McpTools 无状态，按需 new 无副作用）。
+    /// </summary>
+    private static McpTools? ResolveTools(HttpContext ctx)
+    {
+        if (ctx.RequestServices.GetService(typeof(McpTools)) is McpTools registered) return registered;
+
+        var lifecycle = ctx.RequestServices.GetService(typeof(IInstanceLifecycleService)) as IInstanceLifecycleService;
+        var console = ctx.RequestServices.GetService(typeof(IInstanceConsoleService)) as IInstanceConsoleService;
+        return lifecycle is null || console is null ? null : new McpTools(lifecycle, console);
+    }
+
     private static JsonObject ErrorResponse(JsonNode? id, JsonRpcError error) => new()
     {
         ["jsonrpc"] = "2.0",
@@ -191,30 +205,13 @@ public static class McpEndpoint
     };
 
     /// <summary>
-    /// 端点挂在宿主 /api 下，请求能到达这里说明宿主已校验过凭证；因此宿主鉴权通过即放行。
-    /// 插件自带 Key（mcp_xxx）仅保留作直连兜底，不是必需。
+    /// 端点挂在宿主 /api 下，请求能到达这里说明宿主已校验过凭证（x-api-key / x-user-token / 登录态）；
+    /// 插件不再自己校验密钥。
     /// </summary>
-    private static bool IsAuthorized(HttpContext ctx)
-    {
-        if (ctx.User?.Identity?.IsAuthenticated == true) return true;
-        if (ctx.Request.Headers.ContainsKey("X-API-Key") || ctx.Request.Headers.ContainsKey("X-User-Token")) return true;
-
-        var expected = McpSettings.GetOrCreateApiKey();
-        string? provided = null;
-        var auth = ctx.Request.Headers["Authorization"].FirstOrDefault();
-        if (!string.IsNullOrEmpty(auth) && auth.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase))
-            provided = auth["Bearer ".Length..].Trim();
-        if (string.IsNullOrEmpty(provided)) return false;
-        return FixedTimeEquals(provided!, expected);
-    }
-
-    private static bool FixedTimeEquals(string a, string b)
-    {
-        var ba = Encoding.UTF8.GetBytes(a);
-        var bb = Encoding.UTF8.GetBytes(b);
-        if (ba.Length != bb.Length) return false;
-        return System.Security.Cryptography.CryptographicOperations.FixedTimeEquals(ba, bb);
-    }
+    private static bool IsAuthorized(HttpContext ctx) =>
+        ctx.User?.Identity?.IsAuthenticated == true
+        || ctx.Request.Headers.ContainsKey("X-API-Key")
+        || ctx.Request.Headers.ContainsKey("X-User-Token");
 
     private static async Task WriteAsync(HttpContext ctx, JsonNode payload)
     {

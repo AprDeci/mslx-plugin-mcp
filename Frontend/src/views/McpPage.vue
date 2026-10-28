@@ -1,20 +1,18 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
-import { CopyIcon, RefreshIcon, LinkIcon, KeyIcon, ToolsIcon, LockOnIcon } from 'tdesign-icons-vue-next';
+import { CopyIcon, RefreshIcon, LinkIcon, LockOnIcon, ToolsIcon } from 'tdesign-icons-vue-next';
 import request from 'mslx-request';
 
+type ToolItem = { name: string; description: string; enabled: boolean };
 type Cfg = {
-  apiKey: string;
   mcpUrl: string;
-  allowFileWrite: boolean;
-  allowHeavyOps: boolean;
   toolCount: number;
+  tools: ToolItem[];
 };
 
 const loading = ref(true);
 const cfg = ref<Cfg | null>(null);
-const showKey = ref(false);
 const saving = ref(false);
 
 // 宿主拦截器在 code===200 时会自动解包出 data；但不同版本行为不一致，这里两种都兼容。
@@ -41,41 +39,24 @@ const copy = async (text: string, tip = '已复制') => {
   }
 };
 
-const regenerate = async () => {
-  try {
-    const res: any = await request.post({ url: '/api/plugin/mslx-plugin-mcp/regenerate-key' });
-    const data = unwrap(res);
-    if (cfg.value) cfg.value.apiKey = data.apiKey;
-    MessagePlugin.success('API Key 已重置，请同步更新 MCP 客户端');
-  } catch (e: any) {
-    MessagePlugin.error('重置失败：' + (e?.message || '未知错误'));
-  }
-};
-
-const saveToggle = async (key: 'allowFileWrite' | 'allowHeavyOps', val: boolean) => {
-  if (!cfg.value) return;
-  cfg.value[key] = val;
+const toggle = async (tool: ToolItem, val: boolean) => {
+  const prev = tool.enabled;
+  tool.enabled = val;
   saving.value = true;
   try {
-    const body: any = {};
-    body[key] = val;
-    await request.post({ url: '/api/plugin/mslx-plugin-mcp/settings', data: body });
-    MessagePlugin.success('已保存');
+    await request.post({
+      url: '/api/plugin/mslx-plugin-mcp/settings',
+      data: { tool: tool.name, enabled: val }
+    });
   } catch (e: any) {
-    cfg.value[key] = !val; // 回滚
+    tool.enabled = prev; // 回滚
     MessagePlugin.error('保存失败：' + (e?.message || '未知错误'));
   } finally {
     saving.value = false;
   }
 };
 
-const maskedKey = () => {
-  const k = cfg.value?.apiKey || '';
-  if (showKey.value) return k;
-  return k.length > 12 ? k.slice(0, 6) + '••••••••' + k.slice(-4) : '••••••••';
-};
-
-// 客户端连接示例：统一用 x-api-key（宿主的 API 密钥，长期有效）
+// 客户端连接示例：x-api-key 用宿主的 API 密钥
 const clientSnippet = () => {
   const url = cfg.value?.mcpUrl || '';
   return JSON.stringify(
@@ -84,7 +65,7 @@ const clientSnippet = () => {
         mslx: {
           type: 'http',
           url,
-          headers: { 'x-api-key': '<面板 → 用户管理 → API 密钥>' }
+          headers: { 'x-api-key': '<configs/userlist.json 里的 ApiKey>' }
         }
       }
     },
@@ -109,7 +90,7 @@ onMounted(load);
       </div>
       <div class="flex items-center gap-2">
         <t-tag v-if="cfg" theme="success" variant="light-outline" shape="round" size="small">
-          {{ cfg.toolCount }} 个工具
+          {{ cfg.toolCount }} 个功能
         </t-tag>
         <t-button size="small" variant="outline" :loading="loading" @click="load">
           <template #icon><refresh-icon /></template>
@@ -145,51 +126,37 @@ onMounted(load);
         </div>
 
         <div class="flex flex-col gap-2">
-          <label class="text-xs text-[var(--td-text-color-secondary)]">插件自带 Key（可选，兼容旧客户端）</label>
+          <label class="text-xs text-[var(--td-text-color-secondary)]">鉴权：宿主 API 密钥（请求头 <code>x-api-key</code>）</label>
           <div class="flex flex-col sm:flex-row gap-2">
-            <t-input :value="maskedKey()" readonly class="flex-grow font-mono" />
-            <t-button variant="outline" @click="showKey = !showKey">
-              <template #icon><key-icon /></template>
-              {{ showKey ? '隐藏' : '显示' }}
-            </t-button>
-            <t-button variant="outline" @click="copy(cfg.apiKey, '已复制 API Key')">
-              <template #icon><copy-icon /></template>
-              复制
-            </t-button>
-            <t-button theme="warning" variant="outline" @click="regenerate">
-              <template #icon><refresh-icon /></template>
-              重置
-            </t-button>
+            <t-input value="configs/userlist.json → 对应用户的 ApiKey 字段" readonly class="flex-grow font-mono" />
           </div>
           <p class="text-xs text-[var(--td-text-color-placeholder)] m-0">
-            一般用不上：端点挂在宿主 /api 下，客户端带上宿主的 <code>x-api-key</code>（面板 → 用户管理 → API 密钥）即可，长期有效。这个 Key 只在需要绕过宿主鉴权直连时才有意义。
+            面板里暂时看不到密钥：直接去服务器上的 <code>configs/userlist.json</code> 找当前用户的 <code>ApiKey</code> 值，填给客户端即可（长期有效，不用重置）。
           </p>
         </div>
       </section>
 
-      <!-- 安全开关 -->
+      <!-- 功能开关 -->
       <section class="flex flex-col gap-3">
         <div class="flex items-center gap-2 text-sm font-bold text-[var(--td-text-color-primary)]">
           <lock-on-icon class="text-[var(--color-primary)]" />
-          安全开关
+          功能开关
         </div>
-        <div class="rounded-xl border border-[var(--td-component-border)] bg-[var(--td-bg-color-secondarycontainer)] p-4 flex flex-col gap-4">
-          <div class="flex items-center justify-between gap-4">
-            <div class="flex flex-col">
-              <span class="text-sm text-[var(--td-text-color-primary)]">允许文件写入（edit_file）</span>
-              <span class="text-xs text-[var(--td-text-color-secondary)] mt-0.5">关闭后仅可读文件，禁止任何写入。写入前会自动备份。</span>
+        <div class="rounded-xl border border-[var(--td-component-border)] bg-[var(--td-bg-color-secondarycontainer)] p-4 flex flex-col">
+          <div v-for="(t, i) in cfg.tools" :key="t.name" class="flex flex-col">
+            <div v-if="i > 0" class="h-px bg-[var(--td-component-border)] my-3"></div>
+            <div class="flex items-center justify-between gap-4">
+              <div class="flex flex-col min-w-0">
+                <span class="text-sm font-mono text-[var(--td-text-color-primary)]">{{ t.name }}</span>
+                <span class="text-xs text-[var(--td-text-color-secondary)] mt-0.5">{{ t.description }}</span>
+              </div>
+              <t-switch :value="t.enabled" :loading="saving" @change="(v:any)=>toggle(t, !!v)" />
             </div>
-            <t-switch :value="cfg.allowFileWrite" :loading="saving" @change="(v:any)=>saveToggle('allowFileWrite', !!v)" />
-          </div>
-          <div class="h-px bg-[var(--td-component-border)]"></div>
-          <div class="flex items-center justify-between gap-4">
-            <div class="flex flex-col">
-              <span class="text-sm text-[var(--td-text-color-primary)]">允许启停 / 结束实例（instance_power）</span>
-              <span class="text-xs text-[var(--td-text-color-secondary)] mt-0.5">关闭后 AI 无法启动、停止、重启或强杀服务器。</span>
-            </div>
-            <t-switch :value="cfg.allowHeavyOps" :loading="saving" @change="(v:any)=>saveToggle('allowHeavyOps', !!v)" />
           </div>
         </div>
+        <p class="text-xs text-[var(--td-text-color-placeholder)] m-0">
+          关闭的功能 AI 调用时会直接报错；全部关闭后 AI 仍然能看到工具列表但无法执行。默认全开。
+        </p>
       </section>
 
       <!-- 客户端配置示例 -->

@@ -36,9 +36,8 @@ public class MSLXPluginEntry : IPlugin
     public void OnLoad()
     {
         Instance = this;
-        var key = McpSettings.GetOrCreateApiKey();
         SDK.MSLX.Logger.Info("[MCP] 载入成功。MCP 端点: " + McpEndpoint.Route);
-        SDK.MSLX.Logger.Info($"[MCP] 已就绪，可用工具 {ToolRegistry.BuildToolList().Count} 个（API Key 已生成/存在）。");
+        SDK.MSLX.Logger.Info($"[MCP] 已就绪，可用工具 {ToolRegistry.BuildToolList().Count} 个。");
     }
 
     public void OnUnload()
