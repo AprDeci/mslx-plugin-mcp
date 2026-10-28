@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: Frontend/pnpm-lock.yaml
+
+      - name: Build frontend
+        working-directory: Frontend
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
+
+      - name: Build plugin DLL
+        run: dotnet build -c Release
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: bin/Release/net10.0/MSLX.Plugin.Mcp.dll
+          generate_release_notes: true
+          fail_on_unmatched_files: true

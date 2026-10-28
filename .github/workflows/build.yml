@@ -1,0 +1,40 @@
+name: Test Build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: Frontend/pnpm-lock.yaml
+
+      - name: Build frontend
+        working-directory: Frontend
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
+
+      - name: Build plugin DLL
+        run: dotnet build -c Release
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: MSLX.Plugin.Mcp-${{ github.run_number }}
+          path: bin/Release/net10.0/MSLX.Plugin.Mcp.dll
+          if-no-files-found: error
