@@ -12,7 +12,41 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
 
+      - name: Synchronize plugin versions with tag
+        shell: pwsh
+        env:
+          TAG_VERSION: ${{ github.ref_name }}
+        run: |
+          if ($env:TAG_VERSION -notmatch '^v(?<version>\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?)$') {
+            throw "Release tag must use vMAJOR.MINOR.PATCH format: $env:TAG_VERSION"
+          }
+          $version = $Matches.version
+          $files = @('MSLXPluginEntry.cs', 'Frontend/src/pluginEntry.ts')
+          foreach ($file in $files) {
+            $content = Get-Content $file -Raw
+            if ($file.EndsWith('.cs')) {
+              $pattern = '(public string Version =>\s*")[^"]+(";)'
+              $replacement = "`${1}$version`${2}"
+            } else {
+              $pattern = "(version:\s*')[^']+(')"
+              $replacement = "`${1}$version`${2}"
+            }
+            if ($content -notmatch $pattern) { throw "Could not find version declaration in $file" }
+            $content = [regex]::Replace($content, $pattern, $replacement, 1)
+            Set-Content -Path $file -Value $content -NoNewline
+          }
+          git diff --check
+          if (-not [string]::IsNullOrWhiteSpace((git status --porcelain -- MSLXPluginEntry.cs Frontend/src/pluginEntry.ts))) {
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add MSLXPluginEntry.cs Frontend/src/pluginEntry.ts
+            git commit -m "chore: sync plugin version to $version"
+            git push origin HEAD:main
+          }
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.0.x'
