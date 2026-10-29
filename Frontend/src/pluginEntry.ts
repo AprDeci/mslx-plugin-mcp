@@ -3,7 +3,7 @@ import './style.css';
 
 export const pluginConfig = {
     name: 'MSLX.Plugin.Mcp',
-    version: '1.0.0',
+    version: '1.1.0',
 
     // 注入一级菜单 + 单页
     routes: [
