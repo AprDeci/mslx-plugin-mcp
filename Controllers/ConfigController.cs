@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MSLX.Plugin.Mcp.Mcp;
 
 namespace MSLX.Plugin.Mcp.Controllers;
 
 [ApiController]
+[Authorize(Roles = "admin")]
 [Route("api/plugin/mslx-plugin-mcp")]
 public class ConfigController : ControllerBase
 {

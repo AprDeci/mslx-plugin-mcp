@@ -20,7 +20,7 @@ public static class McpEndpoint
 
     public static async Task HandleAsync(HttpContext ctx)
     {
-        // 鉴权：宿主已鉴权（X-API-Key / X-User-Token / 登录态）即放行，插件自带 Key 仅作直连兜底
+        // 凭证由宿主验证；这里只检查认证结果，不自行校验密钥。
         if (!IsAuthorized(ctx))
         {
             ctx.Response.StatusCode = StatusCodes.Status401Unauthorized;
@@ -204,14 +204,8 @@ public static class McpEndpoint
         ["error"] = error.ToJson()
     };
 
-    /// <summary>
-    /// 端点挂在宿主 /api 下，请求能到达这里说明宿主已校验过凭证（x-api-key / x-user-token / 登录态）；
-    /// 插件不再自己校验密钥。
-    /// </summary>
     private static bool IsAuthorized(HttpContext ctx) =>
-        ctx.User?.Identity?.IsAuthenticated == true
-        || ctx.Request.Headers.ContainsKey("X-API-Key")
-        || ctx.Request.Headers.ContainsKey("X-User-Token");
+        ctx.User?.Identity?.IsAuthenticated == true;
 
     private static async Task WriteAsync(HttpContext ctx, JsonNode payload)
     {

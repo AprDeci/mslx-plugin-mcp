@@ -11,13 +11,13 @@ export const pluginConfig = {
             path: '/plugin-mcp',
             name: 'MslxMcpBase',
             component: 'HOST_LAYOUT',
-            meta: { title: 'MCP 控制台', icon: 'api', roleCode: ['admin', 'user'] },
+            meta: { title: 'MCP 控制台', icon: 'api', roleCode: ['admin'] },
             children: [
                 {
                     path: '',
                     name: 'MslxMcpPage',
                     component: McpPage,
-                    meta: { title: 'MCP 控制台', hidden: true, roleCode: ['admin', 'user'] },
+                    meta: { title: 'MCP 控制台', hidden: true, roleCode: ['admin'] },
                 },
             ],
         },
