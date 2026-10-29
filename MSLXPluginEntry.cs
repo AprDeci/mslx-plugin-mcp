@@ -15,7 +15,7 @@ public class MSLXPluginEntry : IPlugin
     public string Id => "mslx-plugin-mcp";
     public string Name => "MCP 控制台";
     public string Description => "通过 MCP 协议为 AI 客户端提供 MC 服务器命令输入、实例控制、配置与文件读写能力";
-    public string Version => "1.0.0";
+    public string Version => "1.1.0";
     public string Icon => "icon.png";
     public string MinSDKVersion => "1.7.6";
     public string Developer => "aprdec";
