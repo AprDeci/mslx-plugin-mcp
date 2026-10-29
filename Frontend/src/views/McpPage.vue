@@ -56,7 +56,7 @@ const toggle = async (tool: ToolItem, val: boolean) => {
   }
 };
 
-// 客户端连接示例：x-api-key 用宿主的 API 密钥
+// 客户端连接示例：x-api-key 必须使用宿主管理员的 API 密钥
 const clientSnippet = () => {
   const url = cfg.value?.mcpUrl || '';
   return JSON.stringify(
@@ -65,7 +65,7 @@ const clientSnippet = () => {
         mslx: {
           type: 'http',
           url,
-          headers: { 'x-api-key': '<configs/userlist.json 里的 ApiKey>' }
+          headers: { 'x-api-key': '<configs/userlist.json 里管理员的 ApiKey>' }
         }
       }
     },
@@ -126,12 +126,12 @@ onMounted(load);
         </div>
 
         <div class="flex flex-col gap-2">
-          <label class="text-xs text-[var(--td-text-color-secondary)]">鉴权：宿主 API 密钥（请求头 <code>x-api-key</code>）</label>
+          <label class="text-xs text-[var(--td-text-color-secondary)]">鉴权：宿主管理员 API 密钥（请求头 <code>x-api-key</code>）</label>
           <div class="flex flex-col sm:flex-row gap-2">
-            <t-input value="configs/userlist.json → 对应用户的 ApiKey 字段" readonly class="flex-grow font-mono" />
+            <t-input value="configs/userlist.json → 管理员用户的 ApiKey 字段" readonly class="flex-grow font-mono" />
           </div>
           <p class="text-xs text-[var(--td-text-color-placeholder)] m-0">
-            面板里暂时看不到密钥：直接去服务器上的 <code>configs/userlist.json</code> 找当前用户的 <code>ApiKey</code> 值，填给客户端即可（长期有效，不用重置）。
+            本插件仅限管理员使用，普通用户密钥会返回 403。面板里暂时看不到密钥：可在服务器的 <code>configs/userlist.json</code> 中查找管理员用户的 <code>ApiKey</code> 值，仅交给可信客户端使用。
           </p>
         </div>
       </section>

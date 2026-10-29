@@ -20,14 +20,19 @@ public static class McpEndpoint
 
     public static async Task HandleAsync(HttpContext ctx)
     {
-        // 凭证由宿主验证；这里只检查认证结果，不自行校验密钥。
+        // 凭证由宿主验证；MCP 可操作全部实例，因此仅允许管理员访问。
         if (!IsAuthorized(ctx))
         {
-            ctx.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            var authenticated = ctx.User?.Identity?.IsAuthenticated == true;
+            ctx.Response.StatusCode = authenticated
+                ? StatusCodes.Status403Forbidden
+                : StatusCodes.Status401Unauthorized;
             await WriteJsonAsync(ctx, new JsonObject
             {
                 ["jsonrpc"] = "2.0",
-                ["error"] = JsonRpcError.InvalidRequest("未授权：请提供宿主的 X-API-Key（面板 → 用户管理 → API 密钥）").ToJson(),
+                ["error"] = JsonRpcError.InvalidRequest(authenticated
+                    ? "禁止访问：MCP 插件仅限管理员使用"
+                    : "未授权：请提供管理员的宿主 X-API-Key（面板 → 用户管理 → API 密钥）").ToJson(),
                 ["id"] = null
             });
             return;
@@ -205,7 +210,7 @@ public static class McpEndpoint
     };
 
     private static bool IsAuthorized(HttpContext ctx) =>
-        ctx.User?.Identity?.IsAuthenticated == true;
+        ctx.User?.Identity?.IsAuthenticated == true && ctx.User.IsInRole("admin");
 
     private static async Task WriteAsync(HttpContext ctx, JsonNode payload)
     {
